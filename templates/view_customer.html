@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/view_customer.css') }}" /> 
+    <script src="{{ url_for('static',filename='javascript/jquery-3.6.0.min.js') }}"></script>
+   
+{% endblock %}
+
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg">
+    <a class="navbar-brand"><a class="nav-link" href="{{ url_for('homepage') }}">
+        <img src="{{ url_for('static',filename='images/ufood.png')}}" alt="ufood logo" width="50" height="50"></a>
+    </a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav navbar_options">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Tables</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="">Customers</a>
+                <a class="dropdown-item" href="">Staff</a>
+            </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="">View Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Restaurant Locations</a></li>
+
+        </ul>
+        <div class="form-inline">
+            <input type="text" class="form-control mr-2 search_food" placeholder="Browse by cuisines">
+            <button class="btn btn-info" type="submit">Search</button>
+        </div>
+       <a class="btns" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %} 
+<form method="POST" class="view_customer">
+   
+    <h3>View customer info</h3>
+    <div class="customer_info">
+        <p>No.       : {{ index }}</p>
+        <p>Name      : {{ name }}</p>
+        <p>Mobile    : {{ mobile }}</p>
+        <p>Email     : {{ email }}</p>
+        {% if is_member == 0 %}
+        <p>Membership: Non-member</td>
+        {% elif is_member == 1 %}
+        <p>Membership: Applied</td>
+        {% endif %}
+    </div>
+    
+</form>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/customer_payment.css') }}" /> 
+{% endblock %}
+
+{% block nav %}
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <a class="navbar-brand"><a class="nav-link" href="{{ url_for('homepage') }}">
+            <img src="{{ url_for('static',filename='images/ufood.png')}}" alt="ufood logo" width="50" height="50"></a>
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav navbar_options">
+                <!-- <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Mission</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('customers_products',name=name) }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('customers_restaurants',name=name) }}">Restaurants</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="">Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Contact</a></li> -->
+            </ul>
+            <div class="form-inline">
+                <input type="text" class="form-control mr-2 search_food" placeholder="Browse by cuisines">
+                <button class="btn btn-info" type="submit">Search</button>
+            </div>
+           <a class="btns" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %} 
+<div id="container" class="personal_detail">
+    <h2>Name: {{ name }}</h2>
+    <h2>Membership: {{ member }}</h2>
+    <h2>Order No.: {{ order_num }}</h2>
+    <h2>Items</h2>
+   
+        {% for item in total_items %}
+        <ul class="item_list">
+            <li>{{item}}</li>
+        </ul>
+    　  {% endfor %}
+    <h2>Total number of items: {{ quantity }}</h2>
+    <h2>Discount: {{ discount }}</h2>
+    <h2>Total Price: {{ total_amount }}</h2>
+    
+
+    <br>
+    <h2>Select a payment method</h2>
+</div>
+    
+<form method="POST" class="Order_Receipt">
+    <div id="payment_methods">
+        <input type="radio" id="p1" name="pay_method" value="Credit Card"> Credit Card
+        <input type="radio" id="p2" name="pay_method" value="Octopus"> Octopus
+        <input type="radio" id="p3" name="pay_method" value="VISA"> VISA
+    </div>
+    <div id="deliver_addr">
+        Delivery Address:  <input type="text" name="address" value="">
+    </div>
+    <div id="delivery_time">
+        Time to deliver: <input type="time" name="time_to_deliver" min="11:00" max="22:00">
+    </div>
+    <p class="confirm_BTN"><button type="submit" id="submit_order" value="Confirm">Confirm</button></p>    
+    
+</form>
+
+{% endblock %}

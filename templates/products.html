@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/products.css') }}" /> 
+{% endblock %}
+
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg">
+    <a class="navbar-brand"><a class="nav-link" href="{{ url_for('staff_homepage',name=name) }}">
+        <img src="{{ url_for('static',filename='images/ufood.png')}}" alt="ufood logo" width="50" height="50"></a>
+    </a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav navbar_options">
+            <li class="nav-item"><a class="nav-link" href="">Customers</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('restaurants',name=name) }}">Restaurants</a></li>
+        </ul>
+        <div class="form-inline">
+            <input type="text" class="form-control mr-2 search_food" placeholder="Browse by cuisines">
+            <button class="btn btn-info" type="submit">Search</button>
+        </div>
+        <a class="btns" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %} 
+<div id="Products">
+    <h2>Welcome {{ name }}</h2>
+    <h2>Product List</h2>
+    <a class="addProduct_btn" href="{{ url_for('product_add',name=name) }}">Add Product</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>Restaurant</th>
+                <th>Type of cuisine</th>
+                <th>Item</th>
+                <th>Price per unit</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in datas %} 
+            <tr>
+                    
+                    <td>{{ data[1] }}</td>
+                    <td>{{ data[0] }}</td>
+                    <td>{{ data[2] }}</td>
+                    <td>{{ data[3] }}</td>
+                    <td><img src="{{ url_for('static',filename='images/'+data[4].decode('utf-8')) }}" width="200" height="200"></td>
+                    <!-- <td><img src="{{ url_for('static',filename=cuisine_img) }}" width="200" height="200"></td> -->
+                    <td>
+                        <a href="" id="edit_btn"><button type="button" class="btn btn-warning">Edit</button></a>
+                        <a href="" id="del_btn"><button type="button" class="btn btn-danger">Delete</button></a>
+                    </td>
+               
+                </th>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+   
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/homepage_loggedin.css') }}" /> 
+{% endblock %}
+
+{% block nav %}
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <a class="navbar-brand"><a class="nav-link" href="{{ url_for('homepage') }}">
+            <img src="{{ url_for('static',filename='images/ufood.png')}}" alt="ufood logo" width="50" height="50"></a>
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav navbar_options">
+                <!-- <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Mission</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('customers_products',name=name) }}">Order Food</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('customers_restaurants',name=name) }}">Restaurants</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="">Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Contact</a></li> -->
+            </ul>
+            <div class="form-inline">
+                <input type="text" class="form-control mr-2 search_food" placeholder="Browse by cuisines">
+                <button class="btn btn-info" type="submit">Search</button>
+            </div>
+           <a class="btns" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %} 
+<div id="container-fluid">
+    <h1 class="msgToCustomer">Welcome {{ name }}!</h1>
+    <div class="main_screen">
+        <!-- <img class="logo_pic" src="{{ url_for('static',filename='images/deliveryWallpaper.jpg') }}"> -->
+        
+
+        <h2 class="promotions">Hot Promotions!</h2>
+        <p class="checkOrder">Check your order list <a href="{{ url_for('customer_orders',name=name) }}">here</a></p>
+        <p class="discountMsg">Enjoy 20% membership discount off <br> to have delicious food back home!</p>
+    </div>
+</div>
+{% endblock %}

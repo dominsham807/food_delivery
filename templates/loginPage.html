@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/loginPage.css') }}" /> 
+{% endblock %}
+
+{% block nav %}
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <a class="navbar-brand"><a class="nav-link" href="{{ url_for('homepage') }}">
+            <img src="{{ url_for('static',filename='images/ufood.png')}}" alt="ufood logo" width="50" height="50"></a>
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav navbar_options">
+                <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Mission</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Restaurants</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+            </ul>
+            <div class="form-inline">
+                <input type="text" class="form-control mr-2 search_food" placeholder="Browse by cuisines">
+                <button class="btn btn-info" type="submit">Search</button>
+            </div>
+           
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %} 
+<div id="container-fluid">
+    <h1 class="instructions" style="padding-top:60px;">Please fill in the following!</h1>
+
+    <ul class="nav nav-tabs justify-content-center" style="padding-left:30px;padding-right:30px;" id="loginTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="customer-tab" data-toggle="tab" href="#Customer" role="tab" aria-controls="customer" aria-selected="true">Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="staff-tab" data-toggle="tab" href="#Staff" role="tab" aria-controls="staff" aria-selected="false">Staff</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="admin-tab" data-toggle="tab" href="#Admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
+        </li>
+       
+    </ul>
+    <div class="tab-content" id="loginTabsContent">
+        <div class="tab-pane show active" id="Customer" role="tabpanel" aria-labelledby="customer-tab">
+            <form method="POST" action="{{ url_for('login')}}">
+                {{ form.hidden_tag() }}
+                <h3 style="text-align:center;padding-bottom:10px;">Customer Login Portal</h3>
+                <p>{{ wtf.form_field(form.username)}}</p>
+                <p>{{ wtf.form_field(form.password)}}</p>
+       
+                {% if customer_error %}
+                <p class="error_msg">{{ customer_error }}</p>
+                {% else %}
+                <p></p>
+                {% endif %}
+                <p><input type="submit" name="btn" id="customers" value="Login"></p>
+            
+            </form>
+        </div>
+        <div class="tab-pane fade" id="Staff" role="tabpanel" aria-labelledby="staff-tab">
+            <form method="POST" action="{{ url_for('login') }}">
+                {{ form.hidden_tag() }}
+                <h3 style="text-align:center;padding-bottom:10px;">Staff Login Portal</h3>
+                <p>{{ wtf.form_field(form.username)}}</p>
+                <p>{{ wtf.form_field(form.password)}}</p>
+       
+                {% if staff_error %}
+                <p class="error_msg">{{ staff_error }}</p>
+                {% else %}
+                <p></p>
+                {% endif %}
+                <p><input type="submit" name="btn" id="staffs" value="Enter"></p>
+               
+            </form>
+        </div>
+        <div class="tab-pane fade" id="Admin" role="tabpanel" aria-labelledby="admin-tab">
+            <form method="POST" action="{{ url_for('login') }}">
+                {{ form.hidden_tag() }}
+                <h3 style="text-align:center;padding-bottom:10px;">Admin Login Portal</h3>
+                <p>{{ wtf.form_field(form.username)}}</p>
+                <p>{{ wtf.form_field(form.password)}}</p>
+       
+                {% if admin_error %}
+                <p class="error_msg">{{ admin_error }}</p>
+                {% else %}
+                <p></p>
+                {% endif %}
+                <p><input type="submit" name="btn" id="admin" value="Submit"></p>
+                
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
