@@ -1,0 +1,14 @@
+html,body{
+    padding-top:70px;
+    padding-left:50px;
+    padding-right:50px;
+}
+.select_menu a{
+    padding-left:20px;
+    padding-right:20px;
+}
+table{
+    padding-left:50px;
+    padding-right:50px;
+    padding-top:30px;
+}

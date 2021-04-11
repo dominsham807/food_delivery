@@ -1,0 +1,25 @@
+html,body{
+   
+    padding-left:50px;
+    padding-right:50px;
+    /* background-image:url("/static/images/loginWallpaper.jpg"); */
+    width:100%;
+    
+    position:absolute;
+    margin:auto;
+    height: 100%;
+
+  /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clear: both;
+    
+}
+body{
+    padding-top:130px;
+}
+.add_details{
+    padding-left:50px;
+    padding-right:50px;
+}

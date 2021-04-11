@@ -1,0 +1,29 @@
+html {
+    min-height: 100%;
+    min-width:100%;
+}
+body {
+    width:100%;
+    min-height: 100%;
+    min-width:600px;
+    margin: 0 auto;
+    padding-right:0;
+    overflow-x: hidden;
+}
+.navbar{
+    background-color:skyblue;
+    /* position:absolute; */
+    margin:0;
+}
+.nav-link{
+    padding-left:20px;
+    padding-right:20px;
+}
+.form-inline{
+    padding-left:50px;
+    padding-right:20px;
+}
+.btns{
+    padding-left:50px;
+    padding-right:20px;
+}

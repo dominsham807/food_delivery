@@ -1,0 +1,30 @@
+html,body{
+   
+    padding-left:20px;
+    padding-right:50px;
+    /* background-image:url("/static/images/loginWallpaper.jpg"); */
+    width:100%;
+    
+    position:absolute;
+    margin:auto;
+    height: 100%;
+
+  /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clear: both;
+    
+}
+body{
+    padding-top:130px;
+    padding-right:50px;
+}
+#Staff h2{
+    float:left;
+    width:50%;
+}
+.addStaff_btn{
+    float:right;
+    padding-right:50px;
+}

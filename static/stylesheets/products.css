@@ -1,0 +1,37 @@
+html,body{
+   
+    padding-left:150px;
+    padding-right:30px;
+  
+    width:100%;
+    
+    position:absolute;
+    margin:auto;
+    height: 100%;
+
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clear: both;
+    
+}
+body{
+    padding-top:130px;
+    padding-right:50px;
+}
+#Products{
+    float:left;
+    width:70%;
+}
+#Products h2{
+    text-align:center;
+}
+.addProduct_btn{
+    float:right;
+    padding-right:50px;
+}
+tbody tr td{
+    text-align:center;
+    font-size:2.5em;
+}

@@ -1,0 +1,29 @@
+html,body{
+    background-image:url("/static/images/loginWallpaper.jpg");
+    min-width:100%;
+    min-height:100%;
+    position:absolute;
+    margin:auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clear: both;
+    padding-top:40px;
+}
+.login_details{
+    align-items:center;
+    position:absolute;
+    padding-left:250px;
+    top:16%;
+}
+.login_details h3{
+    text-align:center;
+    padding-bottom:30px;
+}
+label{
+    display:inline-block;
+    width:140px;
+    text-align:left;
+}
+.error_msg{
+    color:red;
+}

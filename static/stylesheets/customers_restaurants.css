@@ -1,0 +1,23 @@
+html,body{
+   
+    padding-left:200px;
+    padding-right:30px;
+  
+    width:100%;
+    
+    height:100%;
+    
+}
+body{
+    padding-top:130px;
+    padding-right:50px;
+}
+.Restaurant_list{
+    float:left;
+    width:70%;
+    padding-left:30px;
+}
+.Restaurant_list h2{
+    text-align:center;
+    padding-left:80px;
+}
